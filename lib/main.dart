@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'detail_produk.dart';
+import './detail_produk.dart';
+import './drawer.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +19,23 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Pets Shop Baru Buka")),
+      appBar: new AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text("Beranda"),
+          ],
+        ),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.announcement_outlined),
+              onPressed: () {
+                print(
+                    'Pet Shop adalah sebuah aplikasi untuk jual beli hewan yang bisa dipelihara');
+              }),
+        ],
+      ),
+      drawer: MainDrawer(),
       body: ListView(
         shrinkWrap: true,
         padding: const EdgeInsets.fromLTRB(2, 10, 2, 10),
